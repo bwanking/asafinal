@@ -47,11 +47,9 @@ const Login = () => {
   };
 
   useEffect(() => {
-    if (loading) {
-      return;
-    }
+    if (loading) return;
     if (user) {
-      navigate("/");
+      navigate("/home"); // ✅ Redirect to home, not index
     }
   }, [user, loading, navigate]);
 
@@ -62,7 +60,7 @@ const Login = () => {
   return (
     <div>
       <div className="flex items-center justify-between text-purple-500 font-bold mt-5 p-1">
-        <Link to={"/register"}>
+        <Link to="/register">
           <div className="cursor-pointer flex items-center text-xs">
             <MdArrowBackIos />
             Back to register
@@ -77,7 +75,8 @@ const Login = () => {
       <p className="text-gray-500 leading-5 text-center mb-2">
         Sign-in to continue
       </p>
-      {error && <div className="my-4 text-center"> {error.message} </div>}
+      {error && <div className="my-4 text-center">{error.message}</div>}
+
       <form
         onSubmit={handlesubmit}
         className="flex flex-col justify-center items-center"
@@ -88,6 +87,7 @@ const Login = () => {
             name="email"
             value={email}
             id="email"
+            autoComplete="email"
             onChange={handleChange}
             className="my-2 mx-1 w-[270px] h-[30] xs:w-[360px] xs:h-[40px] md:w-[450px] md:h-[50px] px-6 py-3 rounded-full outline-none border-[1px] border-gray-400 focus:border-purple-500 transition duration-200"
           />
@@ -95,12 +95,14 @@ const Login = () => {
             {email ? "" : "Email"}
           </span>
         </label>
+
         <label className="relative">
           <input
             type="password"
             name="password"
             value={password}
             id="password"
+            autoComplete="current-password"
             onChange={handleChange}
             className="my-2 mx-1 w-[270px] h-[30] xs:w-[360px] xs:h-[40px] md:w-[450px] md:h-[50px] px-6 py-3 rounded-full outline-none border-[1px] border-gray-400 focus:border-purple-500 transition duration-200"
           />
@@ -108,24 +110,28 @@ const Login = () => {
             {password ? "" : "Password"}
           </span>
         </label>
+
         <button
           type="submit"
-          className="w-[270px] h-[30] xs:w-[360px] xs:h-[40px] md:w-[450px] md:h-[50px] p-2 md:p-0  bg-purple-700 text-white text-base font-medium md:font-semibold rounded-full mt-5 md:mt-4"
+          className="w-[270px] h-[30] xs:w-[360px] xs:h-[40px] md:w-[450px] md:h-[50px] p-2 md:p-0 bg-purple-700 text-white text-base font-medium md:font-semibold rounded-full mt-5 md:mt-4"
         >
           Submit
         </button>
       </form>
+
       <ToastContainer />
+
       <div className="flex items-center justify-center mt-5 text-gray-500">
         <div className="border-[1px] w-[200px] border-gray-300 mr-1" />
         OR
         <div className="border-[1px] w-[200px] border-gray-300 ml-1"></div>
       </div>
+
       <div className="flex flex-col items-center">
         <button
-          type="submit"
+          type="button"
           className="w-[270px] h-[30] sm:w-[360px] sm:h-[40px] md:w-[450px] md:h-[50px] p-2 md:p-0 bg-gray-100 text-black text-base font-medium rounded-full mt-5 md:mt-4 flex items-center justify-center"
-          onClick={() => signInWithGoogle()}
+          onClick={signInWithGoogle}
         >
           <img
             src="https://cdn-icons-png.flaticon.com/128/2991/2991148.png"
@@ -134,21 +140,23 @@ const Login = () => {
           />
           Login with Google
         </button>
+
         <button
-          type="submit"
+          type="button"
           className="w-[270px] h-[30] xs:w-[360px] xs:h-[40px] md:w-[450px] md:h-[50px] p-2 md:p-0 bg-white border-gray-200 border-[2px] text-base font-medium rounded-full my-5 md:mt-4 flex items-center justify-center"
-          onClick={() => signInWithGithub()}
+          onClick={signInWithGithub}
         >
           <img
             src={require("../assets/Github.png")}
-            alt="facebook"
+            alt="github"
             className="h-[30px] sm:h-[36px] mr-[2px]"
           />
           Login with Github
         </button>
+
         <div className="text-gray-600 mt-2 mb-5">
           Don't have an account?{" "}
-          <Link to={"/register"}>
+          <Link to="/register">
             <span className="text-purple-500 font-medium">Register here</span>
           </Link>
         </div>
