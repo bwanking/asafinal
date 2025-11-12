@@ -1,7 +1,8 @@
-import Index from './pages/Index'; // adjust path if needed
+
 
 import { Route, Routes} from "react-router-dom";
 import "./App.css";
+import Index from './pages/Index'; // adjust path if needed
 import HomePage from "./pages/HomePage";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
