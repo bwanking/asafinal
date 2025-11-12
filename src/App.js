@@ -8,11 +8,11 @@ import Profile from "./pages/Profile";
 
 function App() {
   return (
-    <Router basename="/asa"> {/* Replace 'asa' with your GitHub repo name if different */}
+    <Router basename="/asafinal"> {/* ✅ Updated to match your GitHub repo name */}
       <div className="App">
         <div className="max-w-[90%] md:max-w-[50%] mx-auto">
           <Routes>
-            <Route path="/" element={<Index />} />         {/* ✅ Index page appears first */}
+            <Route path="/" element={<Index />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/home" element={<HomePage />} />
