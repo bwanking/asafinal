@@ -9,12 +9,12 @@ import {
 import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCgq9_xbC2zMLV_gIrGlBnpryRN_toiHW4",
-  authDomain: "login-signup-auth-ks.firebaseapp.com",
-  projectId: "login-signup-auth-ks",
-  storageBucket: "login-signup-auth-ks.appspot.com",
-  messagingSenderId: "153852426357",
-  appId: "1:153852426357:web:0dace21431a9f096a2203c",
+  apiKey: "AIzaSyDFpRE1lMCLox32brF5UB5vgX0oTzTftHM",
+  authDomain: "asa-dba.firebaseapp.com",
+  projectId: "asa-dba",
+  storageBucket: "asa-dba.firebasestorage.app",
+  messagingSenderId: "987392198785",
+  appId: "1:987392198785:web:0e230ec351875b5ba62580",
 };
 
 const app = initializeApp(firebaseConfig);
